@@ -1,0 +1,65 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>社团治理 DApp</title>
+  <link rel="stylesheet" href="./style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+  <script src="./js/config.js"></script>
+</head>
+<body>
+  <main class="container">
+    <h1>去中心化学生社团治理</h1>
+
+    <section class="card">
+      <h2>钱包与资产</h2>
+      <button id="connectBtn">连接 MetaMask</button>
+      <p>当前地址: <span id="account">未连接</span></p>
+      <p>CGT 余额: <span id="tokenBalance">-</span></p>
+      <p>已通过提案数: <span id="passedCount">-</span></p>
+      <p>纪念 NFT 余额: <span id="nftBalance">-</span></p>
+      <button id="claimTokenBtn">领取初始 100 CGT</button>
+    </section>
+
+    <section class="card">
+      <h2>发起提案</h2>
+      <p>先授权治理合约扣款后再创建提案。</p>
+      <input id="approveProposalFee" type="number" placeholder="授权数量(默认 10)" />
+      <button id="approveProposalBtn">授权发起提案费用</button>
+      <input id="proposalTitle" type="text" placeholder="提案标题" />
+      <textarea id="proposalDesc" placeholder="提案描述"></textarea>
+      <button id="createProposalBtn">创建提案</button>
+    </section>
+
+    <section class="card">
+      <h2>提案投票</h2>
+      <input id="voteProposalId" type="number" placeholder="提案 ID" />
+      <input id="approveVoteAmount" type="number" placeholder="授权投票积分(默认 1)" />
+      <button id="approveVoteBtn">授权投票额度</button>
+      <input id="voteAmount" type="number" placeholder="投票积分数量" />
+      <div class="row">
+        <button id="voteYesBtn">赞成</button>
+        <button id="voteNoBtn">反对</button>
+      </div>
+      <button id="finalizeBtn">截止后结算提案</button>
+      <button id="claimRewardBtn">领取提案通过奖励</button>
+      <button id="claimSouvenirBtn">通过 3 次后领取纪念 NFT</button>
+    </section>
+
+    <section class="card">
+      <h2>提案列表</h2>
+      <button id="refreshBtn">刷新列表</button>
+      <div id="proposalList"></div>
+    </section>
+
+    <section class="card">
+      <h2>日志</h2>
+      <pre id="log"></pre>
+    </section>
+  </main>
+
+  <script src="./js/app.js"></script>
+</body>
+</html>
+

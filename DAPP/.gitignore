@@ -1,0 +1,7 @@
+﻿node_modules/
+artifacts/
+cache/
+.appdata/
+.deps/
+coverage/
+frontend/.DS_Store
